@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- 구글차트, 링크된 3개를 그리는 함수들-->
+    <script>
+        //차트 클릭이 됐을때 실행되는 함수
+        function selectLineChart(selection) {
+            var item = selection[0];
+            changeChartData(item.row)
+        }
+    </script>
+    <script type="text/javascript">
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+
+        google.charts.setOnLoadCallback(drawChart_line1);
+
+        function drawChart_line1() {
+            var data = google.visualization.arrayToDataTable([
+                ['hour', '사건발생수'],
+
+                [0, 1198],
+
+                [1, 1007],
+
+                [2, 927],
+
+                [3, 838],
+
+                [4, 1068],
+
+                [5, 1371],
+
+                [6, 1498],
+
+                [7, 1121],
+
+                [8, 1109],
+
+                [9, 1131],
+
+                [10, 1337],
+
+                [11, 1208],
+
+                [12, 1064],
+
+                [13, 1210],
+
+                [14, 1271],
+
+                [15, 1294],
+
+                [16, 1296],
+
+                [17, 1530],
+
+                [18, 1999],
+
+                [19, 1826],
+
+                [20, 1636],
+
+                [21, 1396],
+
+                [22, 1261],
+
+                [23, 1316],
+
+            ]);
+
+            var options = {
+                'width': 550,
+                'height': 250,
+                title: '시간별 사망교통사고 발생 수 (2012-2018)',
+                curveType: 'function',
+                legend: {
+                    position: 'bottom'
+                },
+                hAxis: {
+                    title: 'Hour'
+                },
+                vAxis: {
+                    title: '사건 발생 수'
+                },
+            };
+
+
+            var chart = new google.visualization.LineChart(document.getElementById('line1'));
+
+
+            function selectHandler() {
+                var selection = chart.getSelection();
+                selectLineChart(selection); // 선택됐을때 실행되는 함수
+                drawChart_line2()
+            }
+            google.visualization.events.addListener(chart, 'select', selectHandler);
+            chart.draw(data, options);
+        }
+    </script>
+
+    <script type="text/javascript">
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+
+        google.charts.setOnLoadCallback(drawChart_line2);
+
+        function drawChart_line2() {
+            var data = google.visualization.arrayToDataTable([
+                ['hour', '과속', '신호위반', '보행자 보호의무 위반', '중앙선 침범'],
+
+                [0, 98, 73, 34, 58],
+
+                [1, 63, 54, 16, 53],
+
+                [2, 56, 64, 14, 53],
+
+                [3, 55, 58, 10, 51],
+
+                [4, 52, 79, 37, 50],
+
+                [5, 74, 138, 58, 68],
+
+                [6, 63, 185, 57, 88],
+
+                [7, 34, 113, 57, 114],
+
+                [8, 25, 101, 48, 122],
+
+                [9, 36, 93, 53, 84],
+
+                [10, 25, 103, 50, 118],
+
+                [11, 21, 92, 37, 120],
+
+                [12, 25, 89, 25, 104],
+
+                [13, 22, 99, 34, 125],
+
+                [14, 23, 86, 43, 138],
+
+                [15, 24, 86, 43, 131],
+
+                [16, 22, 94, 51, 128],
+
+                [17, 38, 106, 67, 149],
+
+                [18, 58, 105, 109, 146],
+
+                [19, 68, 117, 101, 112],
+
+                [20, 68, 112, 75, 117],
+
+                [21, 51, 107, 54, 112],
+
+                [22, 64, 101, 38, 63],
+
+                [23, 77, 89, 28, 80],
+
+            ]);
+
+            var options = {
+                'width': 550,
+                'height': 250,
+                title: '시간별, 유형별 사고 발생 수 (2012-2018)',
+                curveType: 'function',
+                legend: {
+                    position: 'bottom'
+                },
+                hAxis: {
+                    title: 'Hour'
+                },
+                vAxis: {
+                    title: '사건 발생 수'
+                },
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('line2'));
+
+            function selectHandler() {
+                var selection = chart.getSelection();
+                selectLineChart(selection); // 선택됐을때 실행되는 함수
+                drawChart_line1();
+            }
+            google.visualization.events.addListener(chart, 'select', selectHandler);
+            chart.draw(data, options);
+        }
+    </script>
+    <script language="javascript">
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(drawChart_piechart1);
+        piechart1data = [
+            ['사고유형', '사고수'],
+            ['진행중 추돌', 48],
+            ['주정차중 추돌', 33],
+            ['측면직각충돌', 48],
+            ['전도전복', 59],
+            ['공작물충돌', 174],
+            ['기타', 301],
+            ['정면충돌', 47],
+            ['차도통행중', 56],
+            ['횡단중', 299],
+            ['도로이탈 추락', 18],
+            ['길가장자리구역통행중', 18],
+            ['도로이탈 기타', 9],
+            ['보도통행중', 7],
+            ['경보기 무시', 0],
+            ['주/정차차량 충돌', 0],
+            ['차단기돌파', 0],
+            ['직전진행', 0],
+            ['측면충돌', 41],
+            ['추돌', 33],
+            ['전도', 6],
+            ['후진중충돌', 0],
+            ['전복', 1],
+            ['철길건널목', 0],
+        ]
+
+        function drawChart_piechart1() {
+
+            var data = google.visualization.arrayToDataTable(piechart1data);
+
+            var options = {
+                'width': 600,
+                title: '각 시간대별 사고유형'
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart1'));
+
+            chart.draw(data, options);
+        }
+
+        //range 바 옆에 시간 바꾸는 함수
+        function ShowSliderValue(sVal) {
+            var obValueView = document.getElementById("slider_value_view");
+            obValueView.innerHTML = sVal + ' 시'
+        }
+        //range바 움직일때 실행되는 함수
+        var RangeSlider = function() {
+            var range = $('#timebar');
+            console.log(range.value);
+            range.on('input', function() {
+                changeChartData(this.value);
+                ShowSliderValue(this.value);
+            });
+        };
+        $(document).ready(function() {
+            RangeSlider();
+        });
+    </script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Dashboard</title>
+
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+    <div id="wrapper">
+
+        <!-- 메뉴바 -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+            </a>
+
+            <hr class="sidebar-divider my-0">
+            <li class="nav-item">
+                <a class="nav-link" href="슬라이드1.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>슬라이드1</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="슬라이드2.html">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>슬라이드2</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="슬라이드3.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>슬라이드3</span></a>
+            </li>
+            <hr class="sidebar-divider">
+
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+        </ul>
+        <!-- 메뉴바 끝 -->
+
+
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <div id="content">
+                <!-- 메인내용 시작 -->
+                <div class="container-fluid">
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+
+                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+
+                    </div>
+
+                    <div class="card-body">
+                        <input id="timebar" style="width:80%;" class="slider_range" type="range" value="0" min="0" max="23"></input>
+                        <strong><font size=5 id="slider_value_view">0 시</font></strong>
+                    </div>
+                    <div class="row">
+                        <!-- 라인차트1 -->
+                        <div class="col-xl-6 col-lg-7">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">line1</h6>
+                                    <div class="dropdown no-arrow">
+                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                                            <div class="dropdown-header">옵션:</div>
+                                            <a class="dropdown-item" href="#">더보기</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div id="line1" width="100%" height="100%"></div>
+                                </div>
+                            </div>
+                            <!-- 라인차트 2 -->
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">line2</h6>
+                                    <div class="dropdown no-arrow">
+                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                                            <div class="dropdown-header">옵션:</div>
+                                            <a class="dropdown-item" href="#">더보기</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div id="line2" width="100%" height="300px"></div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- 파이차트 -->
+                        <div class="col-xl-6 col-lg-5">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Pie Chart</h6>
+                                    <div class="dropdown no-arrow">
+                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                                            <div class="dropdown-header">옵션:</div>
+                                            <a class="dropdown-item" href="#">더보기</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Card Body -->
+                                <div id="piechart1" style="width: 800px; height: 600px"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- 메인내용 끝 -->
+
+            </div>
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy;  Yunsuu & WanJun</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+
+    </div>
+
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="js/sb-admin-2.min.js"></script>
+    <script src="vendor/chart.js/Chart.min.js"></script>
+
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
+
+    <!-- 파이차트 데이터 바꾸는 함수 -->
+    <script>
+        function changeChartData(n) {
+            if (n == 0) {
+                piechart1data = [
+                    ['사고유형', '사고수'],
+                    ['진행중 추돌', 48],
+                    ['주정차중 추돌', 33],
+                    ['측면직각충돌', 48],
+                    ['전도전복', 59],
+                    ['공작물충돌', 174],
+                    ['기타', 301],
+                    ['정면충돌', 47],
+                    ['차도통행중', 56],
+                    ['횡단중', 299],
+                    ['도로이탈 추락', 18],
+                    ['길가장자리구역통행중', 18],
+                    ['도로이탈 기타', 9],
+                    ['보도통행중', 7],
+                    ['경보기 무시', 0],
+                    ['주/정차차량 충돌', 0],
+                    ['차단기돌파', 0],
+                    ['직전진행', 0],
+                    ['측면충돌', 41],
+                    ['추돌', 33],
+                    ['전도', 6],
+                    ['후진중충돌', 0],
+                    ['전복', 1],
+                    ['철길건널목', 0],
+                ]
+                drawChart_piechart1();
+            }
+
+
+
+            if (n == 1) {
+                piechart1data = [
+                    ['사고유형', '사고수'],
+                    ['진행중 추돌', 59],
+                    ['주정차중 추돌', 42],
+                    ['측면직각충돌', 34],
+                    ['전도전복', 55],
+                    ['공작물충돌', 172],
+                    ['기타', 242],
+                    ['정면충돌', 47],
+                    ['차도통행중', 59],
+                    ['횡단중', 190],
+                    ['도로이탈 추락', 17],
+                    ['길가장자리구역통행중', 6],
+                    ['도로이탈 기타', 6],
+                    ['보도통행중', 9],
+                    ['경보기 무시', 0],
+                    ['주/정차차량 충돌', 1],
+                    ['차단기돌파', 0],
+                    ['직전진행', 0],
+                    ['측면충돌', 29],
+                    ['추돌', 27],
+                    ['전도', 12],
+                    ['후진중충돌', 0],
+                    ['전복', 0],
+                    ['철길건널목', 0],
+                ]
+                drawChart_piechart1();
+            }
+
+
+
+            if (n == 2) {
+                piechart1data = [
+                    ['사고유형', '사고수'],
+                    ['진행중 추돌', 41],
+                    ['주정차중 추돌', 44],
+                    ['측면직각충돌', 39],
+                    ['전도전복', 67],
+                    ['공작물충돌', 173],
+                    ['기타', 223],
+                    ['정면충돌', 51],
+                    ['차도통행중', 44],
+                    ['횡단중', 152],
+                    ['도로이탈 추락', 8],
+                    ['길가장자리구역통행중', 12],
+                    ['도로이탈 기타', 7],
+                    ['보도통행중', 3],
+                    ['경보기 무시', 0],
+                    ['주/정차차량 충돌', 2],
+                    ['차단기돌파', 0],
+                    ['직전진행', 0],
+                    ['측면충돌', 28],
+                    ['추돌', 23],
+                    ['전도', 9],
+                    ['후진중충돌', 0],
+                    ['전복', 1],
+                    ['철길건널목', 0],
+                ]
+                drawChart_piechart1();
+            }
+
+
+
+            if (n == 3) {
+                piechart1data = [
+                    ['사고유형', '사고수'],
+                    ['진행중 추돌', 55],
+                    ['주정차중 추돌', 26],
+                    ['측면직각충돌', 45],
+                    ['전도전복', 33],
+                    ['공작물충돌', 174],
+                    ['기타', 199],
+                    ['정면충돌', 49],
+                    ['차도통행중', 40],
+                    ['횡단중', 134],
+                    ['도로이탈 추락', 17],
+                    ['길가장자리구역통행중', 3],
+                    ['도로이탈 기타', 8],
+                    ['보도통행중', 3],
+                    ['경보기 무시', 0],
+                    ['주/정차차량 충돌', 1],
+                    ['차단기돌파', 1],
+                    ['직전진행', 0],
+                    ['측면충돌', 18],
+                    ['추돌', 26],
+                    ['전도', 3],
+                    ['후진중충돌', 0],
+                    ['전복', 3],
+                    ['철길건널목', 0],
+                ]
+                drawChart_piechart1();
+            }
+
+
+
+            if (n == 4) {
+                piechart1data = [
+                    ['사고유형', '사고수'],
+                    ['진행중 추돌', 86],
+                    ['주정차중 추돌', 30],
+                    ['측면직각충돌', 43],
+                    ['전도전복', 52],
+                    ['공작물충돌', 161],
+                    ['기타', 230],
+                    ['정면충돌', 30],
+                    ['차도통행중', 40],
+                    ['횡단중', 264],
+                    ['도로이탈 추락', 13],
+                    ['길가장자리구역통행중', 7],
+                    ['도로이탈 기타', 8],
+                    ['보도통행중', 14],
+                    ['경보기 무시', 0],
+                    ['주/정차차량 충돌', 1],
+                    ['차단기돌파', 0],
+                    ['직전진행', 0],
+                    ['측면충돌', 43],
+                    ['추돌', 35],
+                    ['전도', 8],
+                    ['후진중충돌', 0],
+                    ['전복', 3],
+                    ['철길건널목', 0],
+                ]
+                drawChart_piechart1();
+            }
+
+
+
+            if (n == 5) {
+                piechart1data = [
+                    ['사고유형', '사고수'],
+                    ['진행중 추돌', 87],
+                    ['주정차중 추돌', 41],
+                    ['측면직각충돌', 80],
+                    ['전도전복', 59],
+                    ['공작물충돌', 148],
+                    ['기타', 295],
+                    ['정면충돌', 54],
+                    ['차도통행중', 47],
+                    ['횡단중', 387],
+                    ['도로이탈 추락', 19],
+                    ['길가장자리구역통행중', 19],
+                    ['도로이탈 기타', 10],
+                    ['보도통행중', 18],
+                    ['경보기 무시', 0],
+                    ['주/정차차량 충돌', 0],
+                    ['차단기돌파', 0],
+                    ['직전진행', 0],
+                    ['측면충돌', 54],
+                    ['추돌', 47],
+                    ['전도', 2],
+                    ['후진중충돌', 0],
+                    ['전복', 4],
+                    ['철길건널목', 0],
+                ]
+                drawChart_piechart1();
+            }
+
+
+
+            if (n == 6) {
+                piechart1data = [
+                    ['사고유형', '사고수'],
+                    ['진행중 추돌', 97],
+                    ['주정차중 추돌', 35],
+                    ['측면직각충돌', 123],
+                    ['전도전복', 47],
+                    ['공작물충돌', 108],
+                    ['기타', 307],
+                    ['정면충돌', 75],
+                    ['차도통행중', 51],
+                    ['횡단중', 473],
+                    ['도로이탈 추락', 17],
+                    ['길가장자리구역통행중', 20],
+                    ['도로이탈 기타', 6],
+                    ['보도통행중', 13],
+                    ['경보기 무시', 0],
+                    ['주/정차차량 충돌', 1],
+                    ['차단기돌파', 0],
+                    ['직전진행', 0],
+                    ['측면충돌', 82],
+                    ['추돌', 35],
+                    ['전도', 7],
+                    ['후진중충돌', 0],
+                    ['전복', 1],
+                    ['철길건널목', 0],
+                ]
+                drawChart_piechart1();
+            }
+
+
+
+            if (n == 7) {
+                piechart1data = [
+                    ['사고유형', '사고수'],
+                    ['진행중 추돌', 56],
+                    ['주정차중 추돌', 31],
+                    ['측면직각충돌', 118],
+                    ['전도전복', 66],
+                    ['공작물충돌', 112],
+                    ['기타', 238],
+                    ['정면충돌', 95],
+                    ['차도통행중', 26],
+                    ['횡단중', 201],
+                    ['도로이탈 추락', 23],
+                    ['길가장자리구역통행중', 16],
+                    ['도로이탈 기타', 13],
+                    ['보도통행중', 15],
+                    ['경보기 무시', 0],
+                    ['주/정차차량 충돌', 0],
+                    ['차단기돌파', 0],
+                    ['직전진행', 0],
+                    ['측면충돌', 69],
+                    ['추돌', 32],
+                    ['전도', 8],
+                    ['후진중충돌', 0],
+                    ['전복', 2],
+                    ['철길건널목', 0],
+                ]
+                drawChart_piechart1();
+            }
+
+
+
+            if (n == 8) {
+                piechart1data = [
+                    ['사고유형', '사고수'],
+                    ['진행중 추돌', 54],
+                    ['주정차중 추돌', 22],
+                    ['측면직각충돌', 145],
+                    ['전도전복', 74],
+                    ['공작물충돌', 95],
+                    ['기타', 226],
+                    ['정면충돌', 90],
+                    ['차도통행중', 28],
+                    ['횡단중', 163],
+                    ['도로이탈 추락', 31],
+                    ['길가장자리구역통행중', 17],
+                    ['도로이탈 기타', 11],
+                    ['보도통행중', 11],
+                    ['경보기 무시', 0],
+                    ['주/정차차량 충돌', 0],
+                    ['차단기돌파', 0],
+                    ['직전진행', 0],
+                    ['측면충돌', 117],
+                    ['추돌', 19],
+                    ['전도', 6],
+                    ['후진중충돌', 0],
+                    ['전복', 0],
+                    ['철길건널목', 0],
+                ]
+                drawChart_piechart1();
+            }
+
+
+
+            if (n == 9) {
+                piechart1data = [
+                    ['사고유형', '사고수'],
+                    ['진행중 추돌', 65],
+                    ['주정차중 추돌', 18],
+                    ['측면직각충돌', 146],
+                    ['전도전복', 61],
+                    ['공작물충돌', 67],
+                    ['기타', 268],
+                    ['정면충돌', 62],
+                    ['차도통행중', 32],
+                    ['횡단중', 202],
+                    ['도로이탈 추락', 22],
+                    ['길가장자리구역통행중', 28],
+                    ['도로이탈 기타', 11],
+                    ['보도통행중', 13],
+                    ['경보기 무시', 0],
+                    ['주/정차차량 충돌', 2],
+                    ['차단기돌파', 0],
+                    ['직전진행', 0],
+                    ['측면충돌', 95],
+                    ['추돌', 21],
+                    ['전도', 17],
+                    ['후진중충돌', 1],
+                    ['전복', 0],
+                    ['철길건널목', 0],
+                ]
+                drawChart_piechart1();
+            }
+
+
+
+            if (n == 10) {
+                piechart1data = [
+                    ['사고유형', '사고수'],
+                    ['진행중 추돌', 85],
+                    ['주정차중 추돌', 25],
+                    ['측면직각충돌', 181],
+                    ['전도전복', 87],
+                    ['공작물충돌', 81],
+                    ['기타', 313],
+                    ['정면충돌', 95],
+                    ['차도통행중', 33],
+                    ['횡단중', 192],
+                    ['도로이탈 추락', 30],
+                    ['길가장자리구역통행중', 27],
+                    ['도로이탈 기타', 14],
+                    ['보도통행중', 17],
+                    ['경보기 무시', 0],
+                    ['주/정차차량 충돌', 0],
+                    ['차단기돌파', 0],
+                    ['직전진행', 0],
+                    ['측면충돌', 106],
+                    ['추돌', 31],
+                    ['전도', 15],
+                    ['후진중충돌', 2],
+                    ['전복', 1],
+                    ['철길건널목', 2],
+                ]
+                drawChart_piechart1();
+            }
+
+
+
+            if (n == 11) {
+                piechart1data = [
+                    ['사고유형', '사고수'],
+                    ['진행중 추돌', 65],
+                    ['주정차중 추돌', 23],
+                    ['측면직각충돌', 147],
+                    ['전도전복', 84],
+                    ['공작물충돌', 88],
+                    ['기타', 273],
+                    ['정면충돌', 98],
+                    ['차도통행중', 33],
+                    ['횡단중', 174],
+                    ['도로이탈 추락', 26],
+                    ['길가장자리구역통행중', 22],
+                    ['도로이탈 기타', 9],
+                    ['보도통행중', 8],
+                    ['경보기 무시', 0],
+                    ['주/정차차량 충돌', 0],
+                    ['차단기돌파', 0],
+                    ['직전진행', 0],
+                    ['측면충돌', 102],
+                    ['추돌', 34],
+                    ['전도', 17],
+                    ['후진중충돌', 1],
+                    ['전복', 4],
+                    ['철길건널목', 0],
+                ]
+                drawChart_piechart1();
+            }
+
+
+
+            if (n == 12) {
+                piechart1data = [
+                    ['사고유형', '사고수'],
+                    ['진행중 추돌', 60],
+                    ['주정차중 추돌', 20],
+                    ['측면직각충돌', 123],
+                    ['전도전복', 76],
+                    ['공작물충돌', 95],
+                    ['기타', 250],
+                    ['정면충돌', 78],
+                    ['차도통행중', 20],
+                    ['횡단중', 123],
+                    ['도로이탈 추락', 30],
+                    ['길가장자리구역통행중', 18],
+                    ['도로이탈 기타', 9],
+                    ['보도통행중', 11],
+                    ['경보기 무시', 0],
+                    ['주/정차차량 충돌', 1],
+                    ['차단기돌파', 0],
+                    ['직전진행', 0],
+                    ['측면충돌', 105],
+                    ['추돌', 21],
+                    ['전도', 20],
+                    ['후진중충돌', 1],
+                    ['전복', 3],
+                    ['철길건널목', 0],
+                ]
+                drawChart_piechart1();
+            }
+
+
+
+            if (n == 13) {
+                piechart1data = [
+                    ['사고유형', '사고수'],
+                    ['진행중 추돌', 79],
+                    ['주정차중 추돌', 33],
+                    ['측면직각충돌', 124],
+                    ['전도전복', 69],
+                    ['공작물충돌', 113],
+                    ['기타', 292],
+                    ['정면충돌', 107],
+                    ['차도통행중', 28],
+                    ['횡단중', 148],
+                    ['도로이탈 추락', 26],
+                    ['길가장자리구역통행중', 15],
+                    ['도로이탈 기타', 15],
+                    ['보도통행중', 18],
+                    ['경보기 무시', 0],
+                    ['주/정차차량 충돌', 0],
+                    ['차단기돌파', 0],
+                    ['직전진행', 0],
+                    ['측면충돌', 99],
+                    ['추돌', 29],
+                    ['전도', 11],
+                    ['후진중충돌', 1],
+                    ['전복', 3],
+                    ['철길건널목', 0],
+                ]
+                drawChart_piechart1();
+            }
+
+
+
+            if (n == 14) {
+                piechart1data = [
+                    ['사고유형', '사고수'],
+                    ['진행중 추돌', 79],
+                    ['주정차중 추돌', 35],
+                    ['측면직각충돌', 130],
+                    ['전도전복', 84],
+                    ['공작물충돌', 131],
+                    ['기타', 310],
+                    ['정면충돌', 98],
+                    ['차도통행중', 32],
+                    ['횡단중', 165],
+                    ['도로이탈 추락', 23],
+                    ['길가장자리구역통행중', 14],
+                    ['도로이탈 기타', 9],
+                    ['보도통행중', 14],
+                    ['경보기 무시', 0],
+                    ['주/정차차량 충돌', 0],
+                    ['차단기돌파', 0],
+                    ['직전진행', 1],
+                    ['측면충돌', 97],
+                    ['추돌', 30],
+                    ['전도', 17],
+                    ['후진중충돌', 0],
+                    ['전복', 2],
+                    ['철길건널목', 0],
+                ]
+                drawChart_piechart1();
+            }
+
+
+
+            if (n == 15) {
+                piechart1data = [
+                    ['사고유형', '사고수'],
+                    ['진행중 추돌', 73],
+                    ['주정차중 추돌', 32],
+                    ['측면직각충돌', 126],
+                    ['전도전복', 108],
+                    ['공작물충돌', 117],
+                    ['기타', 292],
+                    ['정면충돌', 98],
+                    ['차도통행중', 23],
+                    ['횡단중', 160],
+                    ['도로이탈 추락', 42],
+                    ['길가장자리구역통행중', 17],
+                    ['도로이탈 기타', 13],
+                    ['보도통행중', 16],
+                    ['경보기 무시', 0],
+                    ['주/정차차량 충돌', 1],
+                    ['차단기돌파', 0],
+                    ['직전진행', 0],
+                    ['측면충돌', 100],
+                    ['추돌', 54],
+                    ['전도', 18],
+                    ['후진중충돌', 0],
+                    ['전복', 3],
+                    ['철길건널목', 1],
+                ]
+                drawChart_piechart1();
+            }
+
+
+
+            if (n == 16) {
+                piechart1data = [
+                    ['사고유형', '사고수'],
+                    ['진행중 추돌', 49],
+                    ['주정차중 추돌', 25],
+                    ['측면직각충돌', 138],
+                    ['전도전복', 95],
+                    ['공작물충돌', 127],
+                    ['기타', 320],
+                    ['정면충돌', 98],
+                    ['차도통행중', 31],
+                    ['횡단중', 163],
+                    ['도로이탈 추락', 35],
+                    ['길가장자리구역통행중', 31],
+                    ['도로이탈 기타', 19],
+                    ['보도통행중', 17],
+                    ['경보기 무시', 0],
+                    ['주/정차차량 충돌', 0],
+                    ['차단기돌파', 0],
+                    ['직전진행', 0],
+                    ['측면충돌', 92],
+                    ['추돌', 31],
+                    ['전도', 16],
+                    ['후진중충돌', 1],
+                    ['전복', 8],
+                    ['철길건널목', 0],
+                ]
+                drawChart_piechart1();
+            }
+
+
+
+            if (n == 17) {
+                piechart1data = [
+                    ['사고유형', '사고수'],
+                    ['진행중 추돌', 77],
+                    ['주정차중 추돌', 18],
+                    ['측면직각충돌', 140],
+                    ['전도전복', 96],
+                    ['공작물충돌', 120],
+                    ['기타', 337],
+                    ['정면충돌', 137],
+                    ['차도통행중', 44],
+                    ['횡단중', 288],
+                    ['도로이탈 추락', 48],
+                    ['길가장자리구역통행중', 33],
+                    ['도로이탈 기타', 13],
+                    ['보도통행중', 20],
+                    ['경보기 무시', 0],
+                    ['주/정차차량 충돌', 0],
+                    ['차단기돌파', 0],
+                    ['직전진행', 0],
+                    ['측면충돌', 118],
+                    ['추돌', 26],
+                    ['전도', 15],
+                    ['후진중충돌', 0],
+                    ['전복', 0],
+                    ['철길건널목', 0],
+                ]
+                drawChart_piechart1();
+            }
+
+
+
+            if (n == 18) {
+                piechart1data = [
+                    ['사고유형', '사고수'],
+                    ['진행중 추돌', 123],
+                    ['주정차중 추돌', 45],
+                    ['측면직각충돌', 127],
+                    ['전도전복', 88],
+                    ['공작물충돌', 106],
+                    ['기타', 448],
+                    ['정면충돌', 109],
+                    ['차도통행중', 95],
+                    ['횡단중', 568],
+                    ['도로이탈 추락', 40],
+                    ['길가장자리구역통행중', 49],
+                    ['도로이탈 기타', 22],
+                    ['보도통행중', 26],
+                    ['경보기 무시', 0],
+                    ['주/정차차량 충돌', 1],
+                    ['차단기돌파', 1],
+                    ['직전진행', 0],
+                    ['측면충돌', 89],
+                    ['추돌', 50],
+                    ['전도', 10],
+                    ['후진중충돌', 0],
+                    ['전복', 2],
+                    ['철길건널목', 0],
+                ]
+                drawChart_piechart1();
+            }
+
+
+
+            if (n == 19) {
+                piechart1data = [
+                    ['사고유형', '사고수'],
+                    ['진행중 추돌', 91],
+                    ['주정차중 추돌', 23],
+                    ['측면직각충돌', 111],
+                    ['전도전복', 70],
+                    ['공작물충돌', 84],
+                    ['기타', 441],
+                    ['정면충돌', 86],
+                    ['차도통행중', 102],
+                    ['횡단중', 553],
+                    ['도로이탈 추락', 31],
+                    ['길가장자리구역통행중', 69],
+                    ['도로이탈 기타', 8],
+                    ['보도통행중', 29],
+                    ['경보기 무시', 0],
+                    ['주/정차차량 충돌', 0],
+                    ['차단기돌파', 0],
+                    ['직전진행', 0],
+                    ['측면충돌', 81],
+                    ['추돌', 39],
+                    ['전도', 6],
+                    ['후진중충돌', 1],
+                    ['전복', 1],
+                    ['철길건널목', 0],
+                ]
+                drawChart_piechart1();
+            }
+
+
+
+            if (n == 20) {
+                piechart1data = [
+                    ['사고유형', '사고수'],
+                    ['진행중 추돌', 90],
+                    ['주정차중 추돌', 33],
+                    ['측면직각충돌', 94],
+                    ['전도전복', 54],
+                    ['공작물충돌', 70],
+                    ['기타', 367],
+                    ['정면충돌', 88],
+                    ['차도통행중', 115],
+                    ['횡단중', 522],
+                    ['도로이탈 추락', 24],
+                    ['길가장자리구역통행중', 58],
+                    ['도로이탈 기타', 7],
+                    ['보도통행중', 18],
+                    ['경보기 무시', 0],
+                    ['주/정차차량 충돌', 0],
+                    ['차단기돌파', 0],
+                    ['직전진행', 0],
+                    ['측면충돌', 49],
+                    ['추돌', 39],
+                    ['전도', 5],
+                    ['후진중충돌', 0],
+                    ['전복', 3],
+                    ['철길건널목', 0],
+                ]
+                drawChart_piechart1();
+            }
+
+
+
+            if (n == 21) {
+                piechart1data = [
+                    ['사고유형', '사고수'],
+                    ['진행중 추돌', 78],
+                    ['주정차중 추돌', 41],
+                    ['측면직각충돌', 79],
+                    ['전도전복', 51],
+                    ['공작물충돌', 90],
+                    ['기타', 316],
+                    ['정면충돌', 94],
+                    ['차도통행중', 88],
+                    ['횡단중', 375],
+                    ['도로이탈 추락', 23],
+                    ['길가장자리구역통행중', 41],
+                    ['도로이탈 기타', 8],
+                    ['보도통행중', 14],
+                    ['경보기 무시', 0],
+                    ['주/정차차량 충돌', 1],
+                    ['차단기돌파', 0],
+                    ['직전진행', 0],
+                    ['측면충돌', 52],
+                    ['추돌', 39],
+                    ['전도', 4],
+                    ['후진중충돌', 0],
+                    ['전복', 2],
+                    ['철길건널목', 0],
+                ]
+                drawChart_piechart1();
+            }
+
+
+
+            if (n == 22) {
+                piechart1data = [
+                    ['사고유형', '사고수'],
+                    ['진행중 추돌', 66],
+                    ['주정차중 추돌', 32],
+                    ['측면직각충돌', 65],
+                    ['전도전복', 55],
+                    ['공작물충돌', 109],
+                    ['기타', 301],
+                    ['정면충돌', 60],
+                    ['차도통행중', 63],
+                    ['횡단중', 363],
+                    ['도로이탈 추락', 19],
+                    ['길가장자리구역통행중', 17],
+                    ['도로이탈 기타', 11],
+                    ['보도통행중', 9],
+                    ['경보기 무시', 0],
+                    ['주/정차차량 충돌', 0],
+                    ['차단기돌파', 0],
+                    ['직전진행', 0],
+                    ['측면충돌', 49],
+                    ['추돌', 28],
+                    ['전도', 11],
+                    ['후진중충돌', 1],
+                    ['전복', 2],
+                    ['철길건널목', 0],
+                ]
+                drawChart_piechart1();
+            }
+
+
+
+            if (n == 23) {
+                piechart1data = [
+                    ['사고유형', '사고수'],
+                    ['진행중 추돌', 61],
+                    ['주정차중 추돌', 47],
+                    ['측면직각충돌', 61],
+                    ['전도전복', 59],
+                    ['공작물충돌', 161],
+                    ['기타', 305],
+                    ['정면충돌', 77],
+                    ['차도통행중', 69],
+                    ['횡단중', 313],
+                    ['도로이탈 추락', 17],
+                    ['길가장자리구역통행중', 21],
+                    ['도로이탈 기타', 8],
+                    ['보도통행중', 13],
+                    ['경보기 무시', 1],
+                    ['주/정차차량 충돌', 0],
+                    ['차단기돌파', 0],
+                    ['직전진행', 0],
+                    ['측면충돌', 45],
+                    ['추돌', 46],
+                    ['전도', 10],
+                    ['후진중충돌', 0],
+                    ['전복', 2],
+                    ['철길건널목', 0],
+                ]
+                drawChart_piechart1();
+            }
+
+
+
+            if (n == 24) {
+                piechart1data = [
+                    ['사고유형', '사고수'],
+                    ['진행중 추돌', 0],
+                    ['주정차중 추돌', 0],
+                    ['측면직각충돌', 0],
+                    ['전도전복', 0],
+                    ['공작물충돌', 0],
+                    ['기타', 0],
+                    ['정면충돌', 0],
+                    ['차도통행중', 0],
+                    ['횡단중', 0],
+                    ['도로이탈 추락', 0],
+                    ['길가장자리구역통행중', 0],
+                    ['도로이탈 기타', 0],
+                    ['보도통행중', 0],
+                    ['경보기 무시', 0],
+                    ['주/정차차량 충돌', 0],
+                    ['차단기돌파', 0],
+                    ['직전진행', 0],
+                    ['측면충돌', 0],
+                    ['추돌', 0],
+                    ['전도', 0],
+                    ['후진중충돌', 0],
+                    ['전복', 0],
+                    ['철길건널목', 0],
+                ]
+                drawChart_piechart1();
+            }
+        }
+    </script>
+</body>
+
+</html>

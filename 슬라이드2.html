@@ -74,8 +74,7 @@
             ]);
 
             var options = {
-                'width': 550,
-                'height': 250,
+
                 title: '시간별 사망교통사고 발생 수 (2012-2018)',
                 curveType: 'function',
                 legend: {
@@ -96,101 +95,14 @@
             function selectHandler() {
                 var selection = chart.getSelection();
                 selectLineChart(selection); // 선택됐을때 실행되는 함수
-                drawChart_line2()
+
             }
             google.visualization.events.addListener(chart, 'select', selectHandler);
             chart.draw(data, options);
         }
     </script>
 
-    <script type="text/javascript">
-        google.charts.load('current', {
-            'packages': ['corechart']
-        });
 
-        google.charts.setOnLoadCallback(drawChart_line2);
-
-        function drawChart_line2() {
-            var data = google.visualization.arrayToDataTable([
-                ['hour', '과속', '신호위반', '보행자 보호의무 위반', '중앙선 침범'],
-
-                [0, 98, 73, 34, 58],
-
-                [1, 63, 54, 16, 53],
-
-                [2, 56, 64, 14, 53],
-
-                [3, 55, 58, 10, 51],
-
-                [4, 52, 79, 37, 50],
-
-                [5, 74, 138, 58, 68],
-
-                [6, 63, 185, 57, 88],
-
-                [7, 34, 113, 57, 114],
-
-                [8, 25, 101, 48, 122],
-
-                [9, 36, 93, 53, 84],
-
-                [10, 25, 103, 50, 118],
-
-                [11, 21, 92, 37, 120],
-
-                [12, 25, 89, 25, 104],
-
-                [13, 22, 99, 34, 125],
-
-                [14, 23, 86, 43, 138],
-
-                [15, 24, 86, 43, 131],
-
-                [16, 22, 94, 51, 128],
-
-                [17, 38, 106, 67, 149],
-
-                [18, 58, 105, 109, 146],
-
-                [19, 68, 117, 101, 112],
-
-                [20, 68, 112, 75, 117],
-
-                [21, 51, 107, 54, 112],
-
-                [22, 64, 101, 38, 63],
-
-                [23, 77, 89, 28, 80],
-
-            ]);
-
-            var options = {
-                'width': 550,
-                'height': 250,
-                title: '시간별, 유형별 사고 발생 수 (2012-2018)',
-                curveType: 'function',
-                legend: {
-                    position: 'bottom'
-                },
-                hAxis: {
-                    title: 'Hour'
-                },
-                vAxis: {
-                    title: '사건 발생 수'
-                },
-            };
-
-            var chart = new google.visualization.LineChart(document.getElementById('line2'));
-
-            function selectHandler() {
-                var selection = chart.getSelection();
-                selectLineChart(selection); // 선택됐을때 실행되는 함수
-                drawChart_line1();
-            }
-            google.visualization.events.addListener(chart, 'select', selectHandler);
-            chart.draw(data, options);
-        }
-    </script>
     <script language="javascript">
         google.charts.load('current', {
             'packages': ['corechart']
@@ -228,8 +140,8 @@
             var data = google.visualization.arrayToDataTable(piechart1data);
 
             var options = {
-                'width': 600,
-                title: '각 시간대별 사고유형'
+
+                title: '시간대 별 사고유형'
             };
 
             var chart = new google.visualization.PieChart(document.getElementById('piechart1'));
@@ -260,8 +172,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <title>SB Admin 2 - Dashboard</title>
 
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -298,8 +208,14 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="슬라이드3.html">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fas fa-fw fa-chart-area"></i>
                     <span>슬라이드3</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="슬라이드4.html">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>슬라이드4</span></a>
             </li>
             <hr class="sidebar-divider">
 
@@ -320,80 +236,67 @@
                 <div class="container-fluid">
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
 
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Graph/Pie Visualization</h1>
 
                     </div>
-
+                    <!-- 파이차트 -->
                     <div class="card-body">
+                        <h2> 데이터 둘러보기 </h2>
+                        <h4>Time Bar</h4>
                         <input id="timebar" style="width:80%;" class="slider_range" type="range" value="0" min="0" max="23"></input>
                         <strong><font size=5 id="slider_value_view">0 시</font></strong>
                     </div>
                     <div class="row">
-                        <!-- 라인차트1 -->
-                        <div class="col-xl-6 col-lg-7">
+                        <div class="col-lg-11 mb-2">
                             <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">line1</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">시간대 별 사고유형 비율</h6>
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
                                             <div class="dropdown-header">옵션:</div>
-                                            <a class="dropdown-item" href="#">더보기</a>
+                                            <a class="dropdown-item" href="v123.html">더보기</a>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Card Body -->
                                 <div class="card-body">
-                                    <div id="line1" width="100%" height="100%"></div>
-                                </div>
-                            </div>
-                            <!-- 라인차트 2 -->
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">line2</h6>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">옵션:</div>
-                                            <a class="dropdown-item" href="#">더보기</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div id="line2" width="100%" height="300px"></div>
-                                </div>
-                            </div>
-                        </div>
+                                    <p>시간대 별 사고유형 비율을 확인해보았다.</p>
+                                    <div style="height: 400px; width: 100%;" id="piechart1"></div>
+                                    <p>위 Time Bar를 조절하거나, 아래 라인차트의 시간대를 클릭하면</p>
+                                    <p> 해당 시간대의 사고유형 비율을 나타낸다.</p>
 
-
-                        <!-- 파이차트 -->
-                        <div class="col-xl-6 col-lg-5">
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Pie Chart</h6>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">옵션:</div>
-                                            <a class="dropdown-item" href="#">더보기</a>
-                                        </div>
-                                    </div>
                                 </div>
-                                <!-- Card Body -->
-                                <div id="piechart1" style="width: 800px; height: 600px"></div>
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-lg-11 mb-2">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">시간대 별 사고 발생</h6>
+                                    <div class="dropdown no-arrow">
+                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                                            <div class="dropdown-header">옵션:</div>
+                                            <a class="dropdown-item" href="v123.html">더보기</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <p>전체 사고 건수를 시간대별로 나타냄</p>
+                                    <div style="height: 400px;" id="line1"></div>
+                                    <p>위 라인차트의 특정 시간대를 클릭하면 파이차트 또한 해당 시간대로 변경됨</p>
+                                    <p><b>사고가 가장 많이 일어나는 6시와 18시 모두 "횡단중" 사고 비율이 가장 많았다.</b></p>
+                                    <p><b>(해당 시간대를 클릭후 파이차트 확인)</b></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
 
                 </div>
                 <!-- 메인내용 끝 -->
@@ -429,7 +332,7 @@
 
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
-
+    <!--  -->
     <!-- 파이차트 데이터 바꾸는 함수 -->
     <script>
         function changeChartData(n) {

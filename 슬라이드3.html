@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js">
+    </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -50,8 +51,14 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="슬라이드3.html">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fas fa-fw fa-chart-area"></i>
                     <span>슬라이드3</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="슬라이드4.html">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>슬라이드4</span></a>
             </li>
             <hr class="sidebar-divider">
 
@@ -71,75 +78,149 @@
                 <div class="container-fluid">
 
                     <br>
-                    <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
+                    <h1 class="h3 mb-4 text-gray-800">Graph Visualization</h1>
+
                     <div class="row">
+                            <div class="col-lg-11 mb-2">
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">가설</h6>
+                                        <div class="dropdown no-arrow">
+                                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                            <p> 보행자 사고는 유형별/시간별로 주로 발생하는 시간대가 다를 것이다.</p>
+                                            <p> <b> 또한, 가해자의 법규위반 종류와 보행자 사고 유형의 상관관계가 있을 것이다.</b> </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
+                    <div class="row">
                         <div class="col-lg-11 mb-2">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">애니 지도</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">보행자 사고</h6>
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
                                             <div class="dropdown-header">옵션:</div>
-                                            <a class="dropdown-item" href="애니.html">더보기</a>
+                                            <a class="dropdown-item" href="v123.html">더보기</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <p>애니메이션 지도 입니당</p>
-                                    <iframe src="애니.html" width="100%" height="800px" frameborder="0"></iframe>
+                                    <p>"보행자" 교통사고만 사용하여 시간대별 사고 발생 건수를 확인</p>
+                                    <div style="height: 400px;" id="line7"></div>
+                                    <p>보행자 사고는 6시와 19시에 가장 많이 발생함을 알 수 있었다.</p>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-lg-11 mb-2">
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">글 중간에 쓸 칸</h6>
-                                </div>
-                                <div class="card-body">
-                                    <p>여기에다가 필요한 글 쓰기/p>
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-11 mb-2">
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">히트맵 지도</h6>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">옵션:</div>
-                                            <a class="dropdown-item" href="히트맵.html">더보기</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <p>히트맵 지도입니당</p>
-                                    <iframe src="히트맵.html" width="100%" height="800px" frameborder="0"></iframe>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
+                    <div class="col-lg-11 mb-2">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <h6 class="m-0 font-weight-bold text-primary">보행자사고 유형별</h6>
+                                <div class="dropdown no-arrow">
+                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                                        <div class="dropdown-header">옵션:</div>
+                                        <a class="dropdown-item" href="v123.html">더보기</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <p>보행자 사고 유형별 발생 건수를 시간대 별로 나타내여 보았다.</p>
+                                <div class="row">
+                                    <div id="line3" class="col"></div>
+                                    <div id="line4" class="col"></div>
+                                    <div class="w-100"></div>
+                                    <br>
+                                    <div id="line5" class="col"></div>
+                                    <div id="line6" class="col"></div>
+                                </div>
+                                <p>보행자 사고 중 "횡단중" 사고가 다른 유형과는 다른 시간별 분포를 가지고 있었다.</p>
+                                <p>횡단중 사고의 발생건수가 가장 많으면서, 유일하게 6시에도 Peak를 기록하였다.</p>
+                                <p>보행자 사고 중 6시에 발생하는 사고는 대부분 횡단중 사고임을 알 수있다.</p>
+
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-11 mb-2">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">각 시간대별 가해자 교통법규 위반 유형</h6>
+                                    <div class="dropdown no-arrow">
+                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                                            <div class="dropdown-header">옵션:</div>
+                                            <a class="dropdown-item" href="v123.html">더보기</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <p>시간대별 사고의 교통법규 위반 유형을 나타내었다.</p>
+                                    <div style="height: 400px;" id="line2"></div>
+                                    <p><b>유독 신호위반(빨간선)이 "6시"에 급증함을 알 수 있다.</b></p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                            <div class="col-lg-11 mb-2">
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">분석 결과</h6>
+                                        <div class="dropdown no-arrow">
+                                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <p> 보행자 사고중 대부분은 "횡단중"사고 이며, </p>
+                                        <p> 횡단중 사고는 다른 보행자 사고와 다르게, 6시에 급증한다.</p>
+                                        <p> 또한, 6시에 신호위반 사고가 급증함을 확임함으로써</p>
+                                        <p> 오전 6시에 신호위반의 급증이 횡단중 교통사고 급증에 영향을 줌을 알 수 있었다.</p>
+
+                                        <br>
+
+                                        <p>보행자 사고를 줄이기 위해서는 오전 6시 신호위반 단속에 집중하는 것이 합리적이다.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                 </div>
                 <!-- 메인 내용 끝 -->
             </div>
 
+            <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2019</span>
+                        <span>Copyright &copy;  Yunsuu & WanJun</span>
                     </div>
                 </div>
             </footer>
+            <!-- End of Footer -->
 
         </div>
 
@@ -150,23 +231,7 @@
     </a>
 
 
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -179,5 +244,372 @@
     <script src="js/sb-admin-2.min.js"></script>
 
 </body>
+
+<!-- line2~7 그리는 함수 -->
+<script type="text/javascript">
+    google.charts.load('current', {
+        'packages': ['corechart']
+    });
+
+    google.charts.setOnLoadCallback(drawChart_line2);
+
+    function drawChart_line2() {
+        var data = google.visualization.arrayToDataTable([
+            ['hour', '과속', '신호위반', '보행자 보호의무 위반', '중앙선 침범'],
+
+            [0, 98, 73, 34, 58],
+
+            [1, 63, 54, 16, 53],
+
+            [2, 56, 64, 14, 53],
+
+            [3, 55, 58, 10, 51],
+
+            [4, 52, 79, 37, 50],
+
+            [5, 74, 138, 58, 68],
+
+            [6, 63, 185, 57, 88],
+
+            [7, 34, 113, 57, 114],
+
+            [8, 25, 101, 48, 122],
+
+            [9, 36, 93, 53, 84],
+
+            [10, 25, 103, 50, 118],
+
+            [11, 21, 92, 37, 120],
+
+            [12, 25, 89, 25, 104],
+
+            [13, 22, 99, 34, 125],
+
+            [14, 23, 86, 43, 138],
+
+            [15, 24, 86, 43, 131],
+
+            [16, 22, 94, 51, 128],
+
+            [17, 38, 106, 67, 149],
+
+            [18, 58, 105, 109, 146],
+
+            [19, 68, 117, 101, 112],
+
+            [20, 68, 112, 75, 117],
+
+            [21, 51, 107, 54, 112],
+
+            [22, 64, 101, 38, 63],
+
+            [23, 77, 89, 28, 80],
+
+        ]);
+
+        var options = {
+            title: '시간별, 유형별 법률위반(가해자) (2012-2018)',
+            curveType: 'function',
+            legend: {
+                position: 'bottom'
+            },
+            hAxis: {
+                title: 'Hour'
+            },
+            vAxis: {
+                title: '사건 발생 수'
+            },
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('line2'));
+        chart.draw(data, options);
+    }
+</script>
+<script type="text/javascript">
+    google.charts.load('current', {
+        'packages': ['corechart']
+    });
+
+    google.charts.setOnLoadCallback(drawChart_line3);
+
+    function drawChart_line3() {
+        var data = google.visualization.arrayToDataTable([
+            ['hour', '사건발생수'],
+            [0, 299],
+            [1, 190],
+            [2, 152],
+            [3, 134],
+            [4, 264],
+            [5, 387],
+            [6, 473],
+            [7, 201],
+            [8, 163],
+            [9, 202],
+            [10, 192],
+            [11, 174],
+            [12, 123],
+            [13, 148],
+            [14, 165],
+            [15, 160],
+            [16, 163],
+            [17, 288],
+            [18, 568],
+            [19, 553],
+            [20, 522],
+            [21, 375],
+            [22, 363],
+            [23, 313],
+
+        ]);
+
+        var options = {
+            title: '횡단중 발생 사고 (2012-2018)',
+            width: '300px',
+            curveType: 'function',
+            legend: {
+                position: 'bottom'
+            },
+            hAxis: {
+                title: 'Hour'
+            },
+            vAxis: {
+                title: '사건 발생 수'
+            },
+        };
+
+
+        var chart = new google.visualization.LineChart(document.getElementById('line3'));
+        chart.draw(data, options);
+    }
+</script>
+
+
+<script type="text/javascript">
+    google.charts.load('current', {
+        'packages': ['corechart']
+    });
+
+    google.charts.setOnLoadCallback(drawChart_line4);
+
+    function drawChart_line4() {
+        var data = google.visualization.arrayToDataTable([
+            ['hour', '사건발생수'],
+
+            [0, 18],
+            [1, 6],
+            [2, 12],
+            [3, 3],
+            [4, 7],
+            [5, 19],
+            [6, 20],
+            [7, 16],
+            [8, 17],
+            [9, 28],
+            [10, 27],
+            [11, 22],
+            [12, 18],
+            [13, 15],
+            [14, 14],
+            [15, 17],
+            [16, 31],
+            [17, 33],
+            [18, 49],
+            [19, 69],
+            [20, 58],
+            [21, 41],
+            [22, 17],
+            [23, 21],
+
+        ]);
+
+        var options = {
+            title: '길 가장자리 통행중 발생사고 (2012-2018)',
+            curveType: 'function',
+            legend: {
+                position: 'bottom'
+            },
+            hAxis: {
+                title: 'Hour'
+            },
+            vAxis: {
+                title: '사건 발생 수'
+            },
+        };
+
+
+        var chart = new google.visualization.LineChart(document.getElementById('line4'));
+        chart.draw(data, options);
+    }
+</script>
+
+<script type="text/javascript">
+    google.charts.load('current', {
+        'packages': ['corechart']
+    });
+
+    google.charts.setOnLoadCallback(drawChart_line5);
+
+    function drawChart_line5() {
+        var data = google.visualization.arrayToDataTable([
+            ['hour', '사건발생수'],
+            [0, 56],
+            [1, 59],
+            [2, 44],
+            [3, 40],
+            [4, 40],
+            [5, 47],
+            [6, 51],
+            [7, 26],
+            [8, 28],
+            [9, 32],
+            [10, 33],
+            [11, 33],
+            [12, 20],
+            [13, 28],
+            [14, 32],
+            [15, 23],
+            [16, 31],
+            [17, 44],
+            [18, 95],
+            [19, 102],
+            [20, 115],
+            [21, 88],
+            [22, 63],
+            [23, 69],
+
+        ]);
+
+        var options = {
+            title: '차도통행중 발생사고 (2012-2018)',
+            curveType: 'function',
+            legend: {
+                position: 'bottom'
+            },
+            hAxis: {
+                title: 'Hour'
+            },
+            vAxis: {
+                title: '사건 발생 수'
+            },
+        };
+
+
+        var chart = new google.visualization.LineChart(document.getElementById('line5'));
+        chart.draw(data, options);
+    }
+</script>
+
+<script type="text/javascript">
+    google.charts.load('current', {
+        'packages': ['corechart']
+    });
+
+    google.charts.setOnLoadCallback(drawChart_line6);
+
+    function drawChart_line6() {
+        var data = google.visualization.arrayToDataTable([
+            ['hour', '사건발생수'],
+            [0, 7],
+            [1, 9],
+            [2, 3],
+            [3, 3],
+            [4, 14],
+            [5, 18],
+            [6, 13],
+            [7, 15],
+            [8, 11],
+            [9, 13],
+            [10, 17],
+            [11, 8],
+            [12, 11],
+            [13, 18],
+            [14, 14],
+            [15, 16],
+            [16, 17],
+            [17, 20],
+            [18, 26],
+            [19, 29],
+            [20, 18],
+            [21, 14],
+            [22, 9],
+            [23, 13],
+        ]);
+
+        var options = {
+            title: '보도통행중 발생사고 (2012-2018)',
+            curveType: 'function',
+            legend: {
+                position: 'bottom'
+            },
+            hAxis: {
+                title: 'Hour'
+            },
+            vAxis: {
+                title: '사건 발생 수'
+            },
+        };
+
+
+        var chart = new google.visualization.LineChart(document.getElementById('line6'));
+        chart.draw(data, options);
+    }
+</script>
+
+<script type="text/javascript">
+    google.charts.load('current', {
+        'packages': ['corechart']
+    });
+
+    google.charts.setOnLoadCallback(drawChart_line7);
+
+    function drawChart_line7() {
+        var data = google.visualization.arrayToDataTable([
+            ['hour', '사건발생수'],
+
+            [0, 539],
+            [1, 392],
+            [2, 336],
+            [3, 275],
+            [4, 448],
+            [5, 606],
+            [6, 694],
+            [7, 361],
+            [8, 305],
+            [9, 396],
+            [10, 390],
+            [11, 334],
+            [12, 278],
+            [13, 322],
+            [14, 338],
+            [15, 316],
+            [16, 373],
+            [17, 525],
+            [18, 978],
+            [19, 1025],
+            [20, 927],
+            [21, 717],
+            [22, 637],
+            [23, 596],
+        ]);
+
+        var options = {
+            title: '보행자사고 (2012-2018)',
+            curveType: 'function',
+            legend: {
+                position: 'bottom'
+            },
+            hAxis: {
+                title: 'Hour'
+            },
+            vAxis: {
+                title: '사건 발생 수'
+            },
+        };
+
+
+        var chart = new google.visualization.LineChart(document.getElementById('line7'));
+        chart.draw(data, options);
+    }
+</script>
 
 </html>

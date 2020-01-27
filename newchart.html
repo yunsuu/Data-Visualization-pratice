@@ -1,0 +1,306 @@
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js">
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<div class="container">
+    <div class="row">
+        <div style="width: 300px; height: 300px;" id="line3" class="col"></div>
+        <div id="line4" class="col"></div>
+        <div class="w-100"></div>
+        <div id="line5" style="width: 300px; height: 300px;" class="col"></div>
+        <div id="line6" class="col"></div>
+
+
+    </div>
+</div>>
+<div id="line7"></div>
+<script type="text/javascript">
+    google.charts.load('current', {
+        'packages': ['corechart']
+    });
+
+    google.charts.setOnLoadCallback(drawChart_line3);
+
+    function drawChart_line3() {
+        var data = google.visualization.arrayToDataTable([
+            ['hour', '사건발생수'],
+            [0, 299],
+            [1, 190],
+            [2, 152],
+            [3, 134],
+            [4, 264],
+            [5, 387],
+            [6, 473],
+            [7, 201],
+            [8, 163],
+            [9, 202],
+            [10, 192],
+            [11, 174],
+            [12, 123],
+            [13, 148],
+            [14, 165],
+            [15, 160],
+            [16, 163],
+            [17, 288],
+            [18, 568],
+            [19, 553],
+            [20, 522],
+            [21, 375],
+            [22, 363],
+            [23, 313],
+
+        ]);
+
+        var options = {
+            title: '횡단중 발생 사고 (2012-2018)',
+            width: '300px',
+            curveType: 'function',
+            legend: {
+                position: 'bottom'
+            },
+            hAxis: {
+                title: 'Hour'
+            },
+            vAxis: {
+                title: '사건 발생 수'
+            },
+        };
+
+
+        var chart = new google.visualization.LineChart(document.getElementById('line3'));
+        chart.draw(data, options);
+    }
+</script>
+
+
+<script type="text/javascript">
+    google.charts.load('current', {
+        'packages': ['corechart']
+    });
+
+    google.charts.setOnLoadCallback(drawChart_line4);
+
+    function drawChart_line4() {
+        var data = google.visualization.arrayToDataTable([
+            ['hour', '사건발생수'],
+
+            [0, 18],
+            [1, 6],
+            [2, 12],
+            [3, 3],
+            [4, 7],
+            [5, 19],
+            [6, 20],
+            [7, 16],
+            [8, 17],
+            [9, 28],
+            [10, 27],
+            [11, 22],
+            [12, 18],
+            [13, 15],
+            [14, 14],
+            [15, 17],
+            [16, 31],
+            [17, 33],
+            [18, 49],
+            [19, 69],
+            [20, 58],
+            [21, 41],
+            [22, 17],
+            [23, 21],
+
+        ]);
+
+        var options = {
+            title: '길 가장자리 통행중 발생사고 (2012-2018)',
+            curveType: 'function',
+            legend: {
+                position: 'bottom'
+            },
+            hAxis: {
+                title: 'Hour'
+            },
+            vAxis: {
+                title: '사건 발생 수'
+            },
+        };
+
+
+        var chart = new google.visualization.LineChart(document.getElementById('line4'));
+        chart.draw(data, options);
+    }
+</script>
+
+<script type="text/javascript">
+    google.charts.load('current', {
+        'packages': ['corechart']
+    });
+
+    google.charts.setOnLoadCallback(drawChart_line5);
+
+    function drawChart_line5() {
+        var data = google.visualization.arrayToDataTable([
+            ['hour', '사건발생수'],
+            [0, 56],
+            [1, 59],
+            [2, 44],
+            [3, 40],
+            [4, 40],
+            [5, 47],
+            [6, 51],
+            [7, 26],
+            [8, 28],
+            [9, 32],
+            [10, 33],
+            [11, 33],
+            [12, 20],
+            [13, 28],
+            [14, 32],
+            [15, 23],
+            [16, 31],
+            [17, 44],
+            [18, 95],
+            [19, 102],
+            [20, 115],
+            [21, 88],
+            [22, 63],
+            [23, 69],
+
+        ]);
+
+        var options = {
+            title: '차도통행중 발생사고 (2012-2018)',
+            curveType: 'function',
+            legend: {
+                position: 'bottom'
+            },
+            hAxis: {
+                title: 'Hour'
+            },
+            vAxis: {
+                title: '사건 발생 수'
+            },
+        };
+
+
+        var chart = new google.visualization.LineChart(document.getElementById('line5'));
+        chart.draw(data, options);
+    }
+</script>
+
+<script type="text/javascript">
+    google.charts.load('current', {
+        'packages': ['corechart']
+    });
+
+    google.charts.setOnLoadCallback(drawChart_line6);
+
+    function drawChart_line6() {
+        var data = google.visualization.arrayToDataTable([
+            ['hour', '사건발생수'],
+            [0, 7],
+            [1, 9],
+            [2, 3],
+            [3, 3],
+            [4, 14],
+            [5, 18],
+            [6, 13],
+            [7, 15],
+            [8, 11],
+            [9, 13],
+            [10, 17],
+            [11, 8],
+            [12, 11],
+            [13, 18],
+            [14, 14],
+            [15, 16],
+            [16, 17],
+            [17, 20],
+            [18, 26],
+            [19, 29],
+            [20, 18],
+            [21, 14],
+            [22, 9],
+            [23, 13],
+        ]);
+
+        var options = {
+            title: '보도통행중 발생사고 (2012-2018)',
+            curveType: 'function',
+            legend: {
+                position: 'bottom'
+            },
+            hAxis: {
+                title: 'Hour'
+            },
+            vAxis: {
+                title: '사건 발생 수'
+            },
+        };
+
+
+        var chart = new google.visualization.LineChart(document.getElementById('line6'));
+        chart.draw(data, options);
+    }
+</script>
+
+<script type="text/javascript">
+    google.charts.load('current', {
+        'packages': ['corechart']
+    });
+
+    google.charts.setOnLoadCallback(drawChart_line7);
+
+    function drawChart_line7() {
+        var data = google.visualization.arrayToDataTable([
+            ['hour', '사건발생수'],
+
+            [0, 539],
+            [1, 392],
+            [2, 336],
+            [3, 275],
+            [4, 448],
+            [5, 606],
+            [6, 694],
+            [7, 361],
+            [8, 305],
+            [9, 396],
+            [10, 390],
+            [11, 334],
+            [12, 278],
+            [13, 322],
+            [14, 338],
+            [15, 316],
+            [16, 373],
+            [17, 525],
+            [18, 978],
+            [19, 1025],
+            [20, 927],
+            [21, 717],
+            [22, 637],
+            [23, 596],
+        ]);
+
+        var options = {
+            title: '보행자사고 (2012-2018)',
+            curveType: 'function',
+            legend: {
+                position: 'bottom'
+            },
+            hAxis: {
+                title: 'Hour'
+            },
+            vAxis: {
+                title: '사건 발생 수'
+            },
+        };
+
+
+        var chart = new google.visualization.LineChart(document.getElementById('line7'));
+        chart.draw(data, options);
+    }
+</script>
